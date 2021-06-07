@@ -1,7 +1,5 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-const Client = require('./Client')
-const Provider = require('./Provider')
 const connectionString = process.env['DB_STRING']
 
 mongoose.connect(connectionString, {
