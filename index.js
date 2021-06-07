@@ -1,5 +1,6 @@
 const express = require('express')
 const router = require('./router')
+var cors = require('cors')
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
@@ -7,6 +8,8 @@ const port = 3000
 const db = require('./db')
 
 const swaggerUI = require('./docs')
+
+app.use(cors())
 
 app.use(bodyParser.json())
 
