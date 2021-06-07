@@ -17,9 +17,9 @@
     },
     "servers": [
       {
-        "url": "http://localhost:3000/books"
+        "url": "http://localhost:3000/"
       }
     ]
   },
-  "apis": ["./routes/books.js"]
+  "apis": ["../router/"]
 }

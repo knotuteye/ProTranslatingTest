@@ -2,7 +2,19 @@ const Client = require('../models/Client')
 const Provider = require('../models/Provider')
 
 async function GetAllClients() {
-  return await Client.find()
+  const clientData = await Client.find()
+  let result = clientData.map((client) => {
+    return {
+      _id: client._id,
+      name: client.name,
+      email: client.email,
+      phone: client.phone,
+      providers: client.providers.map((p) => {
+        return { id: p.id }
+      }),
+    }
+  })
+  return result
 }
 
 async function GetAllProviders() {
@@ -23,4 +35,13 @@ async function DeleteClient(client) {
 
 async function DeleteProvider(provider) {
   return await Provider.deleteOne({ _id: provider._id })
+}
+
+module.exports = {
+  GetAllClients,
+  GetAllProviders,
+  UpdateClient,
+  UpdateProvider,
+  DeleteClient,
+  DeleteProvider,
 }
