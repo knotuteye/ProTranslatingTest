@@ -1,0 +1,29 @@
+{
+  "clients": [
+    {
+      "name": "Test",
+      "email": "test@krfs.com",
+      "phone": "3055550000",
+      "providers": [{ "id": 1 }, { "id": 3 }, { "id": 5 }]
+    },
+    {
+      "name": "Test1",
+      "email": "test1@krfs.com",
+      "phone": "3055550000",
+      "providers": [{ "id": 3 }]
+    },
+    {
+      "name": "Test2",
+      "email": "test2@krfs.com",
+      "phone": "3053335555",
+      "providers": [{ "id": 2 }, { "id": 4 }]
+    }
+  ],
+  "providers": [
+    { "id": 1, "name": "Provider1" },
+    { "id": 2, "name": "Provider2" },
+    { "id": 3, "name": "Provider3" },
+    { "id": 4, "name": "Provider4" },
+    { "id": 5, "name": "Provider5" }
+  ]
+}
