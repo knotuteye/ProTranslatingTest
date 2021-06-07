@@ -16,4 +16,5 @@ Client.insertMany(clientDocs, (err) => {
 Provider.insertMany(providerDocs, (err) => {
   if (err) console.log(err)
   else console.log('Seeded Database Successfully')
+  process.exit()
 })
