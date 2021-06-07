@@ -1,5 +1,7 @@
 <template>
-  <Table></Table>
+  <div class="p-10">
+    <Table></Table>
+  </div>
 </template>
 
 <script>
