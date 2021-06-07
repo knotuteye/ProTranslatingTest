@@ -17,8 +17,14 @@ async function GetAllClients() {
   return result
 }
 
+
+
 async function GetAllProviders() {
-  return await Provider.find()
+  const providerData = await Provider.find()
+  let result = providerData.map((provider) => {
+    return { _id: provider._id, id: provider.id, name: provider.name }
+  })
+  return result
 }
 
 async function UpdateClient(client) {
