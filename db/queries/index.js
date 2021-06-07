@@ -17,14 +17,22 @@ async function GetAllClients() {
   return result
 }
 
-
-
 async function GetAllProviders() {
   const providerData = await Provider.find()
   let result = providerData.map((provider) => {
     return { _id: provider._id, id: provider.id, name: provider.name }
   })
   return result
+}
+
+async function AddNewClient(client) {
+  const newClient = new Client(client)
+  return await newClient.save()
+}
+
+async function AddNewProvider(provider) {
+  const newProvider = new Provider(provider)
+  return await newProvider.save()
 }
 
 async function UpdateClient(client) {
@@ -44,6 +52,8 @@ async function DeleteProvider(provider) {
 }
 
 module.exports = {
+  AddNewClient,
+  AddNewProvider,
   GetAllClients,
   GetAllProviders,
   UpdateClient,
