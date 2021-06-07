@@ -10,14 +10,22 @@ router.get('/clients', (req, res) => {
   queries
     .GetAllClients()
     .then((clients) => res.status(200).json(clients))
-    .catch((err) => res.status(500).json({ error: 'Internal Server Error' }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ error: 'Internal Server Error', message: err.message })
+    )
 })
 
 router.put('/clients', (req, res) => {
   queries
     .AddNewClient(req.body.client)
     .then(() => res.status(200).json({ success: 'Added Client Successfully' }))
-    .catch((err) => res.status(500).json({ error: 'Internal Server Error' }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ error: 'Internal Server Error', message: err.message })
+    )
 })
 
 router.post('/clients', (req, res) => {
@@ -26,7 +34,11 @@ router.post('/clients', (req, res) => {
     .then(() =>
       res.status(200).json({ success: 'Updated Client Successfully' })
     )
-    .catch((err) => res.status(500).json({ error: 'Internal Server Error' }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ error: 'Internal Server Error', message: err.message })
+    )
 })
 
 router.delete('/clients', (req, res) => {
@@ -35,7 +47,11 @@ router.delete('/clients', (req, res) => {
     .then(() =>
       res.status(200).json({ success: 'Deleted Client Successfully' })
     )
-    .catch((err) => res.status(500).json({ error: 'Internal Server Error' }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ error: 'Internal Server Error', message: err.message })
+    )
 })
 
 router.get('/providers', (req, res) => {
@@ -48,7 +64,11 @@ router.put('/providers', (req, res) => {
     .then(() =>
       res.status(200).json({ success: 'Added Provider Successfully' })
     )
-    .catch((err) => res.status(500).json({ error: 'Internal Server Error' }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ error: 'Internal Server Error', message: err.message })
+    )
 })
 
 router.post('/providers', (req, res) => {
@@ -57,7 +77,11 @@ router.post('/providers', (req, res) => {
     .then(() =>
       res.status(200).json({ success: 'Updated Provider Successfully' })
     )
-    .catch((err) => res.status(500).json({ error: 'Internal Server Error' }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ error: 'Internal Server Error', message: err.message })
+    )
 })
 
 router.delete('/providers', (req, res) => {
@@ -66,7 +90,11 @@ router.delete('/providers', (req, res) => {
     .then(() =>
       res.status(200).json({ success: 'Deleted Provider Successfully' })
     )
-    .catch((err) => res.status(500).json({ error: 'Internal Server Error' }))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ error: 'Internal Server Error', message: err.message })
+    )
 })
 
 module.exports = router
