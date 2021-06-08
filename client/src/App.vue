@@ -1,19 +1,23 @@
 <template>
   <div class="p-10">
     <Table :clients="clientData" :providers="providerData"></Table>
-    <NewClient :providers="providerData"></NewClient>
+    <ClientModal
+      :edit="true"
+      :client="clientData[0]"
+      :providers="providerData"
+    ></ClientModal>
   </div>
 </template>
 
 <script>
 import Table from './components/Table.vue'
 import { GetAllClients, GetAllProviders } from './api/'
-import NewClient from './components/NewClient.vue'
+import ClientModal from './components/ClientModal.vue'
 export default {
   name: 'App',
   components: {
     Table,
-    NewClient,
+    ClientModal,
   },
   data() {
     return {
