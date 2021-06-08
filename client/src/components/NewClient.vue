@@ -38,6 +38,9 @@
           <div class="flex" v-for="provider in providers" :key="provider.name">
             <input type="checkbox" :name="provider.name" id="" />
             <p>{{ provider.name }}</p>
+            <icon name="pencil-alt" class="w-6 h-6"></icon>
+            <icon name="trash" class="w-6 h-6"></icon>
+
           </div>
         </div>
       </form>

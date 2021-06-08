@@ -1,5 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './index.css'
+import VIcon from 'vue-tailwind-icons'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.use(VIcon)
+
+app.mount('#app')
