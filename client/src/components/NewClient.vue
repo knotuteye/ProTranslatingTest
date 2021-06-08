@@ -3,7 +3,7 @@
     <div class="px-8 py-4 border-b">
       <h1 class="font-bold text-2xl text-blue-600">New Client</h1>
     </div>
-    <div class="px-20 py-10">
+    <div class="px-20 py-10 border-b">
       <form>
         <div
           class="flex justify-center items-center mb-4"
@@ -34,25 +34,33 @@
           />
           <Button class="ml-2 w-32" content="Add Provider"></Button>
         </div>
-        <div class="rounded-md border w-48">
-          <div class="flex" v-for="provider in providers" :key="provider.name">
+        <div class="ml-52 flex flex-col rounded-md border p-3 w-48 gap-y-2">
+          <div
+            class="flex items-center text-gray-600 gap-x-2"
+            v-for="provider in providers"
+            :key="provider.name"
+          >
             <input type="checkbox" :name="provider.name" id="" />
-            <p>{{ provider.name }}</p>
-            <icon name="pencil-alt" class="w-6 h-6"></icon>
-            <icon name="trash" class="w-6 h-6"></icon>
-
+            <p class="text-sm flex-1">{{ provider.name }}</p>
+            <PencilAltIcon class="w-4 cursor-pointer h-4"></PencilAltIcon>
+            <TrashIcon class="w-4 cursor-pointer h-4"></TrashIcon>
           </div>
         </div>
       </form>
     </div>
-    <div></div>
+    <div class="flex px-8 py-4 gap-x-5 justify-end">
+      <Button content="Cancel"></Button>
+      <Button content="Add Client"></Button>
+    </div>
   </div>
 </template>
 
 <script>
 import Button from './Button.vue'
+import { TrashIcon, PencilAltIcon } from '@heroicons/vue/solid'
+
 export default {
-  components: { Button },
+  components: { Button, TrashIcon, PencilAltIcon },
   props: {
     providers: Array,
   },

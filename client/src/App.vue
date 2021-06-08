@@ -1,18 +1,18 @@
 <template>
   <div class="p-10">
-    <!-- <Table :clients="clientData" :providers="providerData"></Table> -->
+    <Table :clients="clientData" :providers="providerData"></Table>
     <NewClient :providers="providerData"></NewClient>
   </div>
 </template>
 
 <script>
-// import Table from './components/Table.vue'
+import Table from './components/Table.vue'
 import { GetAllClients, GetAllProviders } from './api/'
 import NewClient from './components/NewClient.vue'
 export default {
   name: 'App',
   components: {
-    // Table,
+    Table,
     NewClient,
   },
   data() {
