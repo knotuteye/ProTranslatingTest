@@ -3,17 +3,21 @@ const Provider = require('../models/Provider')
 
 async function GetAllClients() {
   const clientData = await Client.find()
-  let result = clientData.map((client) => {
-    return {
-      _id: client._id,
-      name: client.name,
-      email: client.email,
-      phone: client.phone,
-      providers: client.providers.map((p) => {
-        return { id: p.id }
-      }),
-    }
-  })
+  const result = await Promise.all(
+    clientData.map(async (client) => {
+      const providersRaw = await Client.getProviderObjects(client)
+      return {
+        _id: client._id,
+        name: client.name,
+        email: client.email,
+        phone: client.phone,
+        providers: providersRaw.map((x) => {
+          return { id: x.id, name: x.name }
+        }),
+      }
+    })
+  )
+
   return result
 }
 

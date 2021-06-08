@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Provider = require('./Provider')
 
 const clientSchema = new mongoose.Schema({
   name: String,
@@ -7,9 +8,9 @@ const clientSchema = new mongoose.Schema({
   providers: [{ id: Number }],
 })
 
-clientSchema.methods.getProviderObjects = async function () {
+clientSchema.statics.getProviderObjects = async function (client) {
   return await Provider.find({
-    id: { $in: this.providers },
+    id: { $in: client.providers.map((x) => x.id) },
   }).exec()
 }
 
